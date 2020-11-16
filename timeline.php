@@ -4,7 +4,7 @@ $user = $_SESSION['user'];
 $user_id = $_SESSION['user_id'];
 echo "<div class='postcontainer'>";
 echo "<div class='timelineform'>";
-echo "<br>Welcome <strong>$user</strong>. Fill out the form below to create a profile for your dog:<br><br>";
+echo "<div style='display:inline;'><br>Welcome <strong>$user</strong>. Fill out the form below to create a profile for your dog:<br><br></div>";
 $response = "";
 
 if(isset($_POST['createprofile']))
@@ -59,30 +59,48 @@ if(isset($_POST['createprofile']))
 }
 
 ?>
-
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="timeline.css">
+<script src='js/jquery.min.js'></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+	$('.welcome-message').hide();
+});
+</script>
+<body>
 <form method='post' action='timeline.php' enctype='multipart/form-data'>
 
-<label>Dog's user name<span class="required"> *</span></label><br><br>
-<input class='text_field' type='text' name='d_id' placeholder=''><br><br>
-
-<label>Name<span class="required"> *</span></label><br><br>
-<input class='text_field' type='text' name='name' placeholder=''><br><br>
-
-<label>Interests</label><br><br>
-<input class='text_field' type='text' name='interests' placeholder=''><br><br>
-<label>Breed<span class="required"> *</span></label><br><br>
-<input class='text_field' type='text' name='breed' placeholder=''><br><br>
-
-<label>Date of birth<span class="required"> *</span></label><br><br>
-<input class='text_field' type='date' name='dob' placeholder=''><br><br>
-
-<label>Gender<span class="required"> *</span></label><br><br>
+<div class='set'>
+    <div >
+    <label>Name<span class="required"> *</span></label>
+    <input class='text_field' type='text' name='name' placeholder=''>
+    </div>
+    <div >
+    <label>Breed<span class="required"> *</span></label>  
+    <input class='text_field' type='text' name='breed' placeholder=''>
+    </div>
+</div>
+<div class='set'>
+    <div >
+    <label>Date of birth<span class="required"> *</span></label>
+    <input class='text_field' type='date' name='dob' placeholder=''>
+</div>
+<div>
+    <label>Gender<span class="required"> *</span></label>
 <select class='text_field' name='gender'>
   <option value="Female">Female</option>
   <option value="Male">Male</option>
 </select>
+</div>
+</div>
+<div class='set'>
+    <div>
+    <label>Interests</label>
+    <input class='text_field' type='text' name='interests' placeholder=''>  
+</div>  
+</div>
 <br><br>
-
 <input type="hidden" name="createprofile" value="createprofile"> 
 <input class='submitbutton' type='submit' value='Create Dog Profile'>
 </form>

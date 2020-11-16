@@ -2,6 +2,12 @@
 require_once 'header.php';
 $user_id = $_SESSION['user_id'];
 ?>
+<script src='js/jquery.min.js'></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+	$('.welcome-message').hide();
+});
+</script>
 <div style='margin-left:40px'>
 <form method='post' action='analytics.php' enctype='multipart/form-data'>
 

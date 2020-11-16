@@ -1,0 +1,177 @@
+.postcontainer {
+	margin-left: auto;
+	margin-right: auto;
+	width: 600px;
+}
+
+.post {
+	background-color: #FFFFFF;
+	margin-bottom: 60px;
+	border: 1px solid #e6e6e6;
+}
+
+.authorbar {
+	height: 64px;
+	width: 100%;
+
+}
+
+.usericon {
+	width: 30px;
+	height: 30px;
+	border-radius: 15px;
+	margin-right: 15px;
+	margin-top: 17px;
+	margin-bottom: 17px;
+	margin-left: 15px;
+	vertical-align: middle;
+}
+
+.commentbar {
+	padding: 15px;
+
+}
+
+/* .fileinput {
+	line-height: 48px;
+	background-color: #3897F0;
+	height: 48px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: #ffffff;
+	border-radius: 5px;
+	border: none;
+	margin-bottom: 15px;
+} */
+
+.text_field {
+	  border: 1px solid #adbcb3;
+      border-radius: 4px;
+      height: 38px;
+      line-height: 38px;
+      width: 160px;
+}
+
+th, td{
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+#dog_profiles {
+        width: 100%;
+}
+
+
+.required {
+    color: red;
+}
+
+.set {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+
+form section div div{ float: left; }
+
+input, label {
+    display:block;
+}
+
+.timelineform {
+	margin-top: 60px;
+	border: 1px solid #e6e6e6;
+	background-color: #ffffff;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 60px;
+    display: grid;
+    grid-template-areas: "." ".";
+}
+
+.submitbutton {
+    background-color: #83cdc5;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: #ffffff;
+	border-radius: 5px;
+	border: none;
+	margin-bottom: 15px;
+}
+
+.submitbutton:hover {
+	background-color: #2d80ce;
+    cursor: pointer;
+	
+}
+
+.profilecontainer {
+	width: 935px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+.gridpic {
+	height: 293px;
+	width: 293px;
+	margin-right: 28px;
+	margin-bottom: 28px;
+}
+
+.gridpiclast {
+	height: 293px;
+	width: 293px;
+	margin-bottom: 28px;
+}
+
+.profilepic {
+	vertical-align: middle;
+	height: 152px;
+	width: 152px;
+	border-radius: 76px;
+	margin-bottom: 44px;
+	margin-top: 37px;
+	margin-right: 100px;
+}
+
+.profiledescription {
+	width: 935px;
+	padding-left: 70px;
+	padding-right: 70px;
+}
+
+.chatnames {
+	width: 30%;
+	float: left;
+	border: 1px solid #e6e6e6;
+	height: 100%;
+	flex: 1;
+}
+
+.chatcontainer {
+	width: 60%;
+	float: right;
+	border: 1px solid #e6e6e6;
+	height: 100%;
+}
+
+/* .wrapper {
+	border: 1px solid #e6e6e6;
+	height: 100%;
+	width: 100%;
+	display: flex;
+} */
+
+
+
+
+
+
