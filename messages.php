@@ -6,13 +6,13 @@ $msg = "";
 $msgreciever = ""; 
 
 // set messages page based on d_id
-if(isset($_GET['d_id']))
+if(isset($_GET['d_id'])) 
 {
 	$d_id = $_GET['d_id'];
 }
-else
+else 
 {
-	//header("Location: timeline.php");
+	header("Location: timeline.php");
 }
 
 // send a message
