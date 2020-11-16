@@ -1,7 +1,7 @@
 <?php
 require_once 'header.php';
 $user = $_SESSION['user'];
-$msg =
+$msg = "";
 $msgreciever = ""; 
 
 if(isset($_POST['msgreciever']))
@@ -46,17 +46,19 @@ Message: <input type='text' name='msg'><br>
 <div class='chatcontainer'></div>
 </div>
 <?php
-	 echo "Your Messages:<br><br></div>" ;
 
+	 // show dog's messages
+	 echo "Your Messages:<br><br></div>" ;
 	  $result = runthis("SELECT * FROM Dog_Has_Personal_Note WHERE d_id='$user'");
 
       $n = $result->num_rows;
       for($j = 0; $j < $n; $j = $j + 1)
       {
-      	$row = $result->fetch_array(MYSQLI_ASSOC);	 
+		$row = $result->fetch_array(MYSQLI_ASSOC);
       	echo "<div class='msg'>" . "From: " . $row['sender_id'] . "<br>" . " Message: " . $row['content'] . "<br><br></div>";
 	  }
 	  
+	  // show messages dog sent
 	  echo "Sent Messages:<br><br></div>" ;
 
 	  $result = runthis("SELECT * FROM Dog_Has_Personal_Note WHERE sender_id='$user'");
@@ -65,9 +67,8 @@ Message: <input type='text' name='msg'><br>
       for($j = 0; $j < $n; $j = $j + 1)
       {
       	$row = $result->fetch_array(MYSQLI_ASSOC);	 
-      	echo "<div class='msg'>" . "To: " . $row['d_id'] . "<br>" . " Message: " . $row['content'] . "<br><br></div>";
+		echo "<div class='msg'>" . "To: " . $row['d_id'] . "<br>" . " Message: " . $row['content'] . "<br><br></div>";
 	  }
-
 
 ?>
 
