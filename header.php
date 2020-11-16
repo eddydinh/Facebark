@@ -11,7 +11,7 @@ else{
 <!DOCTYPE html>
 		<html>
 		<head>
-            <link rel="icon" href="./icon/universedoge.jpg">
+            <link rel="icon" href="./img/doggo.png">
 			<link rel="stylesheet" type="text/css" href="profilestyle.css">
 			<link rel="stylesheet" type="text/css" href="header.css">
 			<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
