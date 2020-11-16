@@ -27,6 +27,11 @@ else{
 				</a>
 			</li>
 			<li>
+				<a href='analytics.php'><i class="material-icons">analytics</i>
+				<span>Analytics</span>
+				</a>
+			</li>
+			<li>
 			<a href='index.php'><i class="material-icons">pets</i>
 				<span>Log Out</span>
 				</a>

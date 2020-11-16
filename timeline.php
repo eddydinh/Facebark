@@ -10,26 +10,50 @@ $response = "";
 if(isset($_POST['createprofile']))
 {
 	$name = cleanup($_POST['name']);
+    $d_id = cleanup($_POST['d_id']);
 	$interests = cleanup($_POST['interests']);
 	$breed = cleanup($_POST['breed']);
     $dob = cleanup($_POST['dob']);
     $gender = cleanup($_POST['gender']);
-	if($name  == "" || $breed == "" || $dob == "" || $gender == "")
+	if($d_id =="" || $name  == "" || $breed == "" || $dob == "" || $gender == "")
 	{
 		$response = "Not all required fields were entered";
 	}
 	else
-	{
+	{  
+        $result = runthis("SELECT * FROM Owner_Has_Dog WHERE d_id = '$d_id'");
+		if($result->num_rows)
+		{
+			$response = "Dog's user name already exists";
+		} else {
+            global $connection;
             $current_date = date("Y/m/d");
+            $introduction = "<div>Hello my name is <b>".$name.
+            "</b>.<br>
+            My interests are: ".$interests.
+            ".<br>
+            I am a ".$gender." ".$breed.
+            ", who was born on ".$dob.
+            ".<br>
+            My user name is <b>".$d_id.
+            "</b>.
+            Match with me! <br>
+            </div>";
 			runthis("INSERT INTO Owner_Has_Dog VALUES('$current_date',
-                    null,
+                    '$d_id',
                     '$name', 
                     '$interests',
                     '$breed',
                     '$dob',
                     '$gender',
                     '$user_id')");
-			$response = "Your dog <b>". $name."</b>'s profile is created on " .$current_date;
+            runthis("INSERT INTO Dog_Has_Profile_Page  VALUES('$current_date',
+            '$introduction',
+            null, 
+            null,
+            '$d_id')");
+			$response = "Your dog <b>". $name."</b>'s profile is created on " .$current_date." with username <b>".$d_id."</b> assigned.";
+        }
 		
 	}
 }
@@ -65,9 +89,8 @@ if(isset($_POST['createprofile']))
 <div>
     <label>Gender<span class="required"> *</span></label>
 <select class='text_field' name='gender'>
-  <option value="Male">Male</option>
   <option value="Female">Female</option>
-  <option value="Other" selected="selected">Other</option>
+  <option value="Male">Male</option>
 </select>
 </div>
 </div>
@@ -84,8 +107,9 @@ if(isset($_POST['createprofile']))
 
 <div> <?php echo $response ?></div>
 <br>Here are your dogs' profiles:<br><br>
-<table id="dog_profiles">
+<table class="dog_profiles">
 <tr>
+   <th>User name</th>
     <th>Name</th>
     <th>Gender</th>
     <th>Breed</th>
@@ -93,7 +117,7 @@ if(isset($_POST['createprofile']))
     <th>Profile</th>
 </tr>
 <?php
-$result = runthis("SELECT * FROM Owner_Has_Dog WHERE user_id ='$user_id'");
+$result = runthis("SELECT d_id, name, gender, breed, DOB FROM Owner_Has_Dog WHERE user_id ='$user_id'");
 while($row = $result->fetch_array(MYSQLI_ASSOC)) {
     echo "<tr>";
     $d_id= $row["d_id"];
@@ -101,14 +125,15 @@ while($row = $result->fetch_array(MYSQLI_ASSOC)) {
     $gender = $row["gender"];
     $breed = $row["breed"];
     $dob = $row["DOB"];
+    echo "<td>".$d_id."</td>";
     echo "<td>".$name."</td>";
     echo "<td>".$gender."</td>";
     echo "<td>".$breed."</td>";
     echo "<td>".$dob."</td>";
-    echo "<td><a class='submitbutton' href='profile.php?d_id=".$d_id."'>".$name."'s Profile Page</a></td>";
+    echo "<td><a class='submitbutton' href='profile.php?d_id=".$d_id."'>Profile Page</a></td>";
     echo "</tr>";
 }
+echo "</table>";
 ?>
-</table>
 </body>
 </html>
