@@ -73,6 +73,41 @@ if(isset($_FILES['gallerypic']['name']) && $_FILES['gallerypic']['tmp_name'] != 
 
 }
 
+// Delete posts
+ if(isset($_POST['post_id_delete']) && $_POST['post_id_delete'] != '') {
+    $post_id = $_POST['post_id_delete'];
+    if(file_exists("./pics/$post_id.jpg"))
+    {  
+        unlink("./pics/$post_id.jpg");
+    }
+     runthis("DELETE FROM Profile_Page_Contains_Post WHERE post_id ='$post_id'");
+}
+
+// Edit posts
+
+if(isset($_POST['post_id_edit']) && $_POST['post_id_edit'] != '') {
+    $post_id = $_POST['post_id_edit'];
+    $text = $_POST['post_edit_text'];
+    runthis("UPDATE Profile_Page_Contains_Post SET text ='$text' WHERE post_id ='$post_id'");
+}
+
+// Insert comments
+
+if(isset($_POST['add_comment_post_id']) && $_POST['add_comment_post_id'] != '') {
+    $post_id = $_POST['add_comment_post_id'];
+    $poster_id = $_POST['add_comment_poster_id'];
+    $text = $_POST['add_comment_text'];
+    $comment_date = date("Y-m-d H:i:s");
+    runthis("INSERT INTO Post_Contains_Comment VALUES(
+        '$comment_date',
+        '$poster_id',
+        '$text',
+        0,
+        '$comment_date',
+        '$post_id'
+    )");
+}
+
 echo "<div class='profilecontainer'>";
 $date = new DateTime();
 if(file_exists("./profilepic/$d_id.jpg"))
@@ -85,7 +120,7 @@ echo "<form method='post' action='profile.php?d_id=".$d_id."' enctype='multipart
     <img id='changepicbutton' class='profilepicbutton' src='./img/camera.png'>
     <img id='droppicbutton' class='profilepicbutton' src='./img/x.png'>
     
-    <input id='deleteprofilepic' type='text' name='deleteprofilepic' value='' style='display:none;'>
+    <input id='deleteprofilepic' type='hidden' name='deleteprofilepic' value=''>
     <input id='inputprofilepic' type='file' name='profilepic' style='display:none;'>
 	<input id='submitprofilepic' type='submit' style='display:none;' value='Save'>
 </form>";
@@ -117,15 +152,40 @@ while($row = $posts_result->fetch_array(MYSQLI_ASSOC)) {
     $num_likes = $row["num_likes"];
     if(file_exists("./pics/$post_id.jpg"))
     {   
-        echo "<img class='postpic' src='./pics/$post_id.jpg?".$date->getTimestamp()."'><br><br>";
+        echo "<img class='postpic' src='./pics/$post_id.jpg?".$date->getTimestamp()."'>";
     } else {
-        echo "<img class='postpic' src='./pics/defaultpost.jpg'><br>";
+        echo "<img class='postpic' src='./pics/defaultpost.jpg'>";
     }
     
-    echo "<div style='width: 400px; margin: 0px 10px; text-align: left;'>";
-//    echo "<i id='like_button' class='fa fa-paw' aria-hidden='true'></i>";
-//    echo "<div>".$num_likes." likes </div>"
-    echo"<br>Caption: ".$caption. "</div>";
+    echo "<div class='underpostsection'>";
+    echo "<form method='post' style='visibility:hidden; position:absolute;' action='profile.php?d_id=".$d_id."' enctype='multipart/form-data'>
+         <input type='hidden' name='post_id_delete' value='".$post_id."'>
+         <input id ='delete_post_submit_".$post_id."' type='submit'>
+    </form>";
+    echo "<div class='post_util'>";
+    echo "<img onclick='editThis(".$post_id.")' src='./img/edit.png' width='30px'/>";
+    echo "<img onclick='deleteThis(".$post_id.")' src='./img/garbage.png' width='30px'/>";
+    echo "</div>";
+    echo "<div id='caption".$post_id."'>Caption: ".$caption."</div>";
+    echo "<form method='post' style='display:none;' id='form-caption".$post_id."' action='profile.php?d_id=".$d_id."' enctype='multipart/form-data'> 
+            <input type='text' name='post_edit_text' value='$caption'>
+            <input type='hidden' name='post_id_edit' value='".$post_id."'>
+            <input type='submit' value='Save New Caption'>
+            <button onclick ='return closeThisEdit(".$post_id.")'>Close</button>
+    </form>";
+    echo "<br>";
+    echo "<form method='post' action='profile.php?d_id=".$d_id."' enctype='multipart/form-data'> 
+            <input type='text' name='add_comment_text' placeholder='Enter comment here...'>
+            <input type='hidden' name='add_comment_post_id' value='".$post_id."'>
+            <input type='hidden' name='add_comment_poster_id' value='".$d_id."'>
+            <input type='submit' value='Post Comment'>
+    </form>";
+    echo "<br>";
+    $comments = runthis("SELECT poster_id, text FROM Post_Contains_Comment WHERE post_id='$post_id' ORDER BY time_stamp");
+    while($comment_row = $comments->fetch_array(MYSQLI_ASSOC)) {
+        echo "<div><b>".$comment_row['poster_id']."</b>   ".$comment_row['text']."</div>";
+    }
+    echo "</div>";
     echo "</div>";
 }
 echo "</div><br><br>";
@@ -142,7 +202,25 @@ $("#droppicbutton").click(function () {
     $("#submitprofilepic").click();
 });
     
+function deleteThis(post_id) {
+    $("#delete_post_submit_"+post_id).click();
+}
+    
+function editThis(post_id) {
+    $("#caption"+post_id).hide();
+     $("#form-caption"+post_id).show();
+}
+    
+function closeThisEdit(post_id) {
+     $("#form-caption"+post_id).hide();
+    $("#caption"+post_id).show();
+    
+    return false;
+}
+    
+    
 $('#inputprofilepic').on("change", function(){  $("#submitprofilepic").click(); });
+
 
 </script>
 </html>
