@@ -1,29 +1,46 @@
 <?php
 require_once 'functions.php';
+if(isset($_SESSION['user'])){
+	$user = $_SESSION['user'];
+}
+else{
+	header("Location: index.php"); //commented our for testing
+}
+?>
 
-if(isset($_SESSION['user']))
-{
-	echo <<<_END
-		<!DOCTYPE html>
+<!DOCTYPE html>
 		<html>
 		<head>
             <link rel="icon" href="./icon/universedoge.jpg">
-			<link rel="stylesheet" type="text/css" href="style.css">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <title>Facebark</title>
+			<link rel="stylesheet" type="text/css" href="header.css">
+			<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		</head>	
 		<body>
-		<ul class='topbar'>
-			<li><a href='timeline.php'>Home</a></li>
-            <li><a href='analytics.php'>Analytics</a></li>
-			<li><a href='index.php'>Log Out</a></li>
-		</ul>
-_END;
-}
-else
-{
-	header("Location: index.php");
-}
-
-?>
+		<div class="topbar">
+		<img id="logo" src="./pics/doggo.png" alt="dog">
+		<h1>Facebark</h1>
+		<ul class='toolbar'>
+			<div class='toolbar-li'>
+			<li>
+				<a href='timeline.php'><i class="material-icons">home</i>
+				<span>Home</span>
+				</a>
+			</li>
+			<li>
+				<a href='analytics.php'><i class="material-icons">analytics</i>
+				<span>Analytics</span>
+				</a>
+			</li>
+			<li>
+			<a href='index.php'><i class="material-icons">pets</i>
+				<span>Log Out</span>
+				</a>
+			</li>
+</div>
+</div>
+<div class="welcome-message fade-in centered">
+<h1>Welcome back <?php echo $user?></h1>
+</div>
+</body>
+</html>
 <script src='js/jquery.min.js'></script>

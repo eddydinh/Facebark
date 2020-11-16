@@ -1,45 +1,7 @@
-a {
-	text-decoration: none;
-	color: #000;
-}
-
-.topbar {
-	margin-top: 0px;
-	margin-left: auto;
-	margin-right: auto;
-	background-color: #FFFFFF;
-	border-bottom: 1px solid #e6e6e6;
-	height: 76px;
-	display: flex;
-	align-items: center;
-}
-
-.topbar > li > a {
-	text-decoration: none;
-	color: #262626;
-	font-style: normal;
-}
-
-ul.topbar {
-	list-style: none;
-}
-
-li {
-	margin-right: 15px;
-	display: inline;
-}
-
 .postcontainer {
 	margin-left: auto;
 	margin-right: auto;
 	width: 600px;
-}
-
-body {
-	color: #262626;
-	margin: 0px;
-	background-color: #FAFAFA;
-	font-family: "Roboto";
 }
 
 .post {
@@ -70,7 +32,7 @@ body {
 
 }
 
-.fileinput {
+/* .fileinput {
 	line-height: 48px;
 	background-color: #3897F0;
 	height: 48px;
@@ -82,13 +44,14 @@ body {
 	border-radius: 5px;
 	border: none;
 	margin-bottom: 15px;
-}
+} */
 
 .text_field {
-	background-color: #FAFAFA;
-	border: 1px solid #e6e6e6;
-	color: #262626;
-	padding: 3px;
+	  border: 1px solid #adbcb3;
+      border-radius: 4px;
+      height: 38px;
+      line-height: 38px;
+      width: 160px;
 }
 
 th, td{
@@ -105,18 +68,33 @@ th, td{
     color: red;
 }
 
+.set {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+
+form section div div{ float: left; }
+
+input, label {
+    display:block;
+}
+
 .timelineform {
 	margin-top: 60px;
 	border: 1px solid #e6e6e6;
 	background-color: #ffffff;
-	padding: 10px;
-	margin-bottom: 60px;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 60px;
+    display: grid;
+    grid-template-areas: "." ".";
 }
 
 .submitbutton {
-	/*line-height: 48px;*/
-	background-color: #3897F0;
-	/*height: 48px;*/
+    background-color: #83cdc5;
 	padding-left: 10px;
 	padding-right: 10px;
 	padding-top: 10px;
@@ -141,6 +119,7 @@ th, td{
 	margin-right: auto;
     text-align: center;
 }
+
 
 
 .gridpic {
@@ -247,9 +226,15 @@ th, td{
 	height: 100%;
 }
 
-.wrapper {
+/* .wrapper {
 	border: 1px solid #e6e6e6;
 	height: 100%;
 	width: 100%;
 	display: flex;
-}
+} */
+
+
+
+
+
+
