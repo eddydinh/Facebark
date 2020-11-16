@@ -5,6 +5,8 @@ $d_id = null;
 $msg = "";
 $msgreciever = ""; 
 
+date_default_timezone_set("America/Vancouver");
+
 // set messages page based on d_id
 if(isset($_GET['d_id'])) 
 {
@@ -24,7 +26,6 @@ if(isset($_POST['msgreciever']))
 	if($msgreciever == "")
 	{
 		echo "The reciever box cannot be empty";
-		echo "    dog $d_id";
 	}
 	 else if ($msg == "")
 	{
@@ -45,44 +46,62 @@ if(isset($_POST['msgreciever']))
 		}
 	}
 }
-?>
 
- <form method='post' action='messages.php'>
+echo "<form method='post' action='messages.php?d_id=".$d_id."'>
 To: <input type='text' name='msgreciever'><br>
 Message: <input type='text' name='msg'><br>
 <input type='submit' value='Send'>
-</form>
-<br>
+</form>";
+echo "<br>
  
 <div class='wrapper'>
 <div class='chatnames'></div>
 <div class='chatcontainer'></div>
-</div>
-<?php
+</div>";
 
 	 // show dog's messages
-	 echo "Your Messages:<br><br></div>" ;
-	  $result = runthis("SELECT * FROM Dog_Has_Personal_Note WHERE d_id='$d_id'");
+	 echo "<table class='your_messages'>
+ <tr>
+	<th>From</th>
+	<th>Message</th>
+	<th>On</th>
+ </tr>";
 
-      $n = $result->num_rows;
-      for($j = 0; $j < $n; $j = $j + 1)
-      {
-		$row = $result->fetch_array(MYSQLI_ASSOC);
-      	echo "<div class='msg'>" . "From: " . $row['sender_id'] . "<br>" . " Message: " . $row['content'] . "<br><br></div>";
-	  }
+ 	echo "Your Messages:<br><br></div>" ;
+	$result = runthis("SELECT * FROM Dog_Has_Personal_Note WHERE d_id='$d_id'");
+
+	while($row = $result->fetch_array(MYSQLI_ASSOC)) {
+		echo "<tr>";
+		$sender_id = $row["sender_id"];
+		$message = $row["content"];
+		$date = $row["since"];
+		echo "<td>".$sender_id."</td>";
+		echo "<td>".$message."</td>";
+		echo "<td>".$date."</td>";
+	}
 	  
 	  // show messages dog sent
-	  echo "Sent Messages:<br><br></div>" ;
+	  echo "<table class='sent_messages'>
+ <tr>
+	<th>To</th>
+	<th>Message</th>
+	<th>On</th>
+ </tr>";
+      echo "<br>";
+ 	  echo "Sent Messages:<br><br></div>" ;
 
 	  $result = runthis("SELECT * FROM Dog_Has_Personal_Note WHERE sender_id='$d_id'");
 
-      $n = $result->num_rows;
-      for($j = 0; $j < $n; $j = $j + 1)
-      {
-      	$row = $result->fetch_array(MYSQLI_ASSOC);	 
-		echo "<div class='msg'>" . "To: " . $row['d_id'] . "<br>" . " Message: " . $row['content'] . "<br><br></div>";
+	  while($row = $result->fetch_array(MYSQLI_ASSOC)) 
+	  {
+		echo "<tr>";
+		$sender_id = $row["sender_id"];
+		$message = $row["content"];
+		$date = $row["since"];
+		echo "<td>".$sender_id."</td>";
+		echo "<td>".$message."</td>"; 
+		echo "<td>".$date."</td>"; 
 	  }
-
 ?>
 
 </body>

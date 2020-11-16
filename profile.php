@@ -49,9 +49,6 @@ if(isset($_FILES['profilepic']['name']) && $_FILES['profilepic']['name'] != "")
     
 }
 
-echo "<td><a class='submitbutton' href='messages.php?d_id=".$d_id."'>Messages</a></td>";
-
-
 // Set posts
 if(isset($_FILES['gallerypic']['name']) && $_FILES['gallerypic']['tmp_name'] != '')
 {
@@ -110,6 +107,10 @@ if(isset($_POST['add_comment_post_id']) && $_POST['add_comment_post_id'] != '') 
         '$post_id'
     )");
 }
+
+//setup messaging button
+echo "<td><a class='submitbutton' href='messages.php?d_id=".$d_id."'>Messages</a></td>";
+
 
 echo "<div class='profilecontainer'>";
 $date = new DateTime();
