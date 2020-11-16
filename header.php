@@ -13,10 +13,11 @@ if(isset($_SESSION['user']))
             <title>Facebark</title>
 		</head>	
 		<body>
-		 <ul class='topbar'>
-			 <li><a href='timeline.php'>Home</a></li>
-		 	 <li><a href='index.php'>Log Out</a></li>
-		 </ul>
+		<ul class='topbar'>
+			<li><a href='timeline.php'>Home</a></li>
+            <li><a href='analytics.php'>Analytics</a></li>
+			<li><a href='index.php'>Log Out</a></li>
+		</ul>
 _END;
 }
 else

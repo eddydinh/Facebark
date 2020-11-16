@@ -89,7 +89,7 @@ if(isset($_POST['createprofile']))
 
 <div> <?php echo $response ?></div>
 <br>Here are your dogs' profiles:<br><br>
-<table id="dog_profiles">
+<table class="dog_profiles">
 <tr>
    <th>User name</th>
     <th>Name</th>
@@ -115,7 +115,7 @@ while($row = $result->fetch_array(MYSQLI_ASSOC)) {
     echo "<td><a class='submitbutton' href='profile.php?d_id=".$d_id."'>Profile Page</a></td>";
     echo "</tr>";
 }
+echo "</table>";
 ?>
-</table>
 </body>
 </html>

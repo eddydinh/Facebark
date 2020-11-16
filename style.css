@@ -96,7 +96,7 @@ th, td{
     padding: 10px;
     text-align: center;
 }
-#dog_profiles {
+.dog_profiles {
         width: 100%;
 }
 
@@ -175,6 +175,17 @@ th, td{
     width:400px;
     margin: 20px auto;
     
+}
+
+.post_util img {
+    cursor:pointer;
+}
+
+
+.underpostsection{
+    padding: 10px;
+    width: 400px; 
+    text-align: left;
 }
 
 #footer {
