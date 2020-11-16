@@ -133,7 +133,7 @@ echo " <hr><br>
     <br>
     <br>
     <input class='text_field' type='text' name='caption' placeholder='Write your caption here...'><br><br>
-	<input type='submit' value='POST'>
+	<input class ='submitbutton' type='submit' value='POST'>
 </form></div>";
 echo "<br>";
 echo "<br>";
@@ -168,17 +168,17 @@ while($row = $posts_result->fetch_array(MYSQLI_ASSOC)) {
     echo "</div>";
     echo "<div id='caption".$post_id."'>Caption: ".$caption."</div>";
     echo "<form method='post' style='display:none;' id='form-caption".$post_id."' action='profile.php?d_id=".$d_id."' enctype='multipart/form-data'> 
-            <input type='text' name='post_edit_text' value='$caption'>
+            <input type='text' class ='text_field' name='post_edit_text' value='$caption'>
             <input type='hidden' name='post_id_edit' value='".$post_id."'>
-            <input type='submit' value='Save New Caption'>
-            <button onclick ='return closeThisEdit(".$post_id.")'>Close</button>
+            <input class ='submitbutton' type='submit' value='Save New Caption'>
+            <button class ='submitbutton' onclick ='return closeThisEdit(".$post_id.")'>Close</button>
     </form>";
     echo "<br>";
     echo "<form method='post' action='profile.php?d_id=".$d_id."' enctype='multipart/form-data'> 
-            <input type='text' name='add_comment_text' placeholder='Enter comment here...'>
+            <input class ='text_field' type='text' name='add_comment_text' placeholder='Enter comment here...'>
             <input type='hidden' name='add_comment_post_id' value='".$post_id."'>
             <input type='hidden' name='add_comment_poster_id' value='".$d_id."'>
-            <input type='submit' value='Post Comment'>
+            <input class ='submitbutton' type='submit' value='Post Comment'>
     </form>";
     echo "<br>";
     $comments = runthis("SELECT poster_id, text FROM Post_Contains_Comment WHERE post_id='$post_id' ORDER BY time_stamp");
@@ -193,6 +193,9 @@ echo "<div style='position:relative; height:100%;'><div id='footer'>Profile crea
 ?>
 </body>
 <script>
+$(document).ready(function() {
+	$('.welcome-message').hide();
+});
 $("#changepicbutton").click(function () {
     $("#inputprofilepic").click();
 });

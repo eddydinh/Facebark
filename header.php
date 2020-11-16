@@ -12,12 +12,14 @@ else{
 		<html>
 		<head>
             <link rel="icon" href="./icon/universedoge.jpg">
+			<link rel="stylesheet" type="text/css" href="profilestyle.css">
 			<link rel="stylesheet" type="text/css" href="header.css">
 			<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+			<title>Facebark</title>
 		</head>	
 		<body>
 		<div class="topbar">
-		<img id="logo" src="./pics/doggo.png" alt="dog">
+		<img id="logo" src="./img/doggo.png" alt="dog">
 		<h1>Facebark</h1>
 		<ul class='toolbar'>
 			<div class='toolbar-li'>

@@ -8,7 +8,7 @@ $appname= 'CHATAPP';
 
 $connection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 if($connection->connect_error) die($connection->connect_error);
-
+mysqli_options($connection, MYSQLI_OPT_LOCAL_INFILE, true);
 
 function runthis($query)
 {

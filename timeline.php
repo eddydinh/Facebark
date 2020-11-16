@@ -73,28 +73,32 @@ if(isset($_POST['createprofile']))
 
 <div class='set'>
     <div >
-    <label>Name<span class="required"> *</span></label>
-    <input class='text_field' type='text' name='name' placeholder=''>
+    <label>Dog's user name<span class="required"> *</span></label>
+    <input class='text_field' type='text' name='d_id' placeholder=''>
     </div>
     <div >
-    <label>Breed<span class="required"> *</span></label>  
-    <input class='text_field' type='text' name='breed' placeholder=''>
+    <label>Name<span class="required"> *</span></label>
+    <input class='text_field' type='text' name='name' placeholder=''>
     </div>
 </div>
 <div class='set'>
     <div >
+    <label>Breed<span class="required"> *</span></label>  
+    <input class='text_field' type='text' name='breed' placeholder=''>
+    </div>
+    <div >
     <label>Date of birth<span class="required"> *</span></label>
     <input class='text_field' type='date' name='dob' placeholder=''>
+    </div>
 </div>
-<div>
+<div class='set'>
+   <div>
     <label>Gender<span class="required"> *</span></label>
 <select class='text_field' name='gender'>
   <option value="Female">Female</option>
   <option value="Male">Male</option>
 </select>
 </div>
-</div>
-<div class='set'>
     <div>
     <label>Interests</label>
     <input class='text_field' type='text' name='interests' placeholder=''>  
@@ -130,7 +134,7 @@ while($row = $result->fetch_array(MYSQLI_ASSOC)) {
     echo "<td>".$gender."</td>";
     echo "<td>".$breed."</td>";
     echo "<td>".$dob."</td>";
-    echo "<td><a class='submitbutton' href='profile.php?d_id=".$d_id."'>Profile Page</a></td>";
+    echo "<td><a class='submitbutton' href='profile.php?d_id=".$d_id."'>Profile</a></td>";
     echo "</tr>";
 }
 echo "</table>";
