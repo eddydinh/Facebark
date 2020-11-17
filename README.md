@@ -9,6 +9,6 @@
 - Download XAMPP [here](https://www.apachefriends.org/download.html).
 ## For Windows:
 - After you have successfully downloaded and installed XAMPP, goes to your **xampp\htdocs** folder (usually is stored in **C:\xampp\htdocs**)
-![alt text](./screenshots/tutorial1.png)
+![alt text](/screenshots/tutorial1.PNG)
 - Create a database named 'chatappdb' in your MySQL
 - Start your server and run 'setup.php' to create the necessary tables
