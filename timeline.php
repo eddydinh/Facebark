@@ -7,6 +7,9 @@ echo "<div class='timelineform'>";
 echo "<div style='display:inline;'><br>Welcome <strong>$user</strong>. Fill out the form below to create a profile for your dog:<br><br></div>";
 $response = "";
 
+date_default_timezone_set("America/Vancouver");
+
+
 if(isset($_POST['createprofile']))
 {
 	$name = cleanup($_POST['name']);

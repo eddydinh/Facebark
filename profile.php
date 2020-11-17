@@ -108,6 +108,10 @@ if(isset($_POST['add_comment_post_id']) && $_POST['add_comment_post_id'] != '') 
     )");
 }
 
+//setup messaging button
+echo "<td><a class='submitbutton' href='messages.php?d_id=".$d_id."'>Messages</a></td>";
+
+
 echo "<div class='profilecontainer'>";
 $date = new DateTime();
 if(file_exists("./profilepic/$d_id.jpg"))
@@ -138,6 +142,7 @@ echo " <hr><br>
 echo "<br>";
 echo "<br>";
 echo "<div style='width: 400px; margin: 0px auto; text-align: left;'>My posts: </div>";
+
 // Display posts
 $posts_result = runthis("SELECT * FROM Profile_Page_Contains_Post WHERE profile_id='$profile_id'");
 if($posts_result->num_rows == 0)
