@@ -103,6 +103,11 @@ echo "<br>
 		echo "<td>".$date."</td>"; 
 	  }
 ?>
+<script>
 
+$(document).ready(function() {
+	$('.welcome-message').hide();
+});
+</script>
 </body>
 </html>
