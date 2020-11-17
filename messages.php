@@ -95,10 +95,10 @@ echo "<br>
 	  while($row = $result->fetch_array(MYSQLI_ASSOC)) 
 	  {
 		echo "<tr>";
-		$sender_id = $row["sender_id"];
+		$d_id = $row["d_id"];
 		$message = $row["content"];
 		$date = $row["since"];
-		echo "<td>".$sender_id."</td>";
+		echo "<td>".$d_id."</td>";
 		echo "<td>".$message."</td>"; 
 		echo "<td>".$date."</td>"; 
 	  }
