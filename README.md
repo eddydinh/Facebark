@@ -7,6 +7,59 @@ https://github.com/eddydinh/Facebark
 - [analytics.php](./analytics.php) file contains code implementations of Selection, Projection, Join, Aggregation with Group By, Aggregation with Having, Nested Aggregation with Group By, Division.
 - [index.php](./index.php), [timeline.php](./timeline.php), [profile.php](./profile.php), [message.php](./messgae.php) files contain code implementations of Insert, Delete, Update, Projection.
 # Screenshots
+- Run **setup.php**
+![alt text](/screenshots/tutorial8.PNG)
+- Signing up for an account (**INSERT** operation):
+![alt text](/screenshots/s1.PNG)
+![alt text](/screenshots/s2.PNG)
+- Log in using that account:
+![alt text](/screenshots/s3.PNG)
+![alt text](/screenshots/s4.PNG)
+- Create new dog's profile (**INSERT** and **PROJECTION** and **SELECTION** operations):
+![alt text](/screenshots/s5.PNG)
+![alt text](/screenshots/s6.PNG)
+- Go into new dog's profile (**SELECTION** operations):
+![alt text](/screenshots/s7.PNG)
+- Change profile picture:
+![alt text](/screenshots/s8.PNG)
+![alt text](/screenshots/s9.PNG)
+- Add some posts (**INSERT** and **PROJECTION** and **SELECTION** operations):
+![alt text](/screenshots/s10.PNG)
+![alt text](/screenshots/s11.PNG)
+- Change post's caption (**UPDATE** operation):
+![alt text](/screenshots/s12.PNG)
+![alt text](/screenshots/s13.PNG)
+- Post some comment (**INSERT** and **PROJECTION** and **SELECTION** operations):
+![alt text](/screenshots/s14.PNG)
+![alt text](/screenshots/s15.PNG)
+- Delete post (**DELETE ON CASCADE** operation):
+![alt text](/screenshots/s16.PNG)
+- Go into analytics:
+![alt text](/screenshots/s17.PNG)
+- **SELETION** and **PROJECTION** operation:
+![alt text](/screenshots/s18.PNG)
+![alt text](/screenshots/s19.PNG)
+- **JOIN** operation:
+![alt text](/screenshots/s20.PNG)
+![alt text](/screenshots/s21.PNG)
+- **Aggregation with Group By Distinct** operation:
+![alt text](/screenshots/s22.PNG)
+![alt text](/screenshots/s23.PNG)
+- **Aggregation with HAVING** operation:
+![alt text](/screenshots/s24.PNG)
+![alt text](/screenshots/s25.PNG)
+- **Nested Aggregation with Group By** operation:
+![alt text](/screenshots/s26.PNG)
+![alt text](/screenshots/s27.PNG)
+- **Division** operation:
+![alt text](/screenshots/s28.PNG)
+- Go to message tab:
+![alt text](/screenshots/s29.PNG)
+- Send a message:
+![alt text](/screenshots/s30.PNG)
+![alt text](/screenshots/s31.PNG)
+- On receiver side:
+![alt text](/screenshots/s32.PNG)
 # How to run locally
 - Download XAMPP [here](https://www.apachefriends.org/download.html).
 ## For Windows:
@@ -14,7 +67,7 @@ https://github.com/eddydinh/Facebark
 ![alt text](/screenshots/tutorial1.PNG)
 - Then, put Facebark project here (by unziping the submitted zip file here). The **xampp\htdocs** folder should now look like this: 
 ![alt text](/screenshots/tutorial2.PNG)
-- Run xampp-control application found in **xampp\** folder
+- Run xampp-control application found in **xampp** folder
 ![alt text](/screenshots/tutorial3.PNG)
 - The panel should look like this
 ![alt text](/screenshots/tutorial4.PNG)

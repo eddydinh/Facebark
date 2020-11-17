@@ -253,3 +253,8 @@ th, td{
 	width: 100%;
 	display: flex;
 }
+
+#messagebutton:hover {
+    background: #83cdc5;
+    cursor: pointer
+}

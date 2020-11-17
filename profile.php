@@ -109,7 +109,7 @@ if(isset($_POST['add_comment_post_id']) && $_POST['add_comment_post_id'] != '') 
 }
 
 //setup messaging button
-echo "<td><a class='submitbutton' href='messages.php?d_id=".$d_id."'>Messages</a></td>";
+echo "<td><a class='submitbutton' id='messagebutton' href='messages.php?d_id=".$d_id."'>Messages</a></td>";
 
 
 echo "<div class='profilecontainer'>";

@@ -72,7 +72,7 @@ if(isset($_POST['loginuser'])) //login, using POST method
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="./icon/universedoge.jpg">
+    <link rel="icon" href="./img/doggo.png">
 	
 	<link rel="stylesheet" type="text/css", href="login.css">
 	<title>Facebark</title>
